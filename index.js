@@ -1,7 +1,6 @@
 // this file is for sending email functions
-
-import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
+const nodemailer =  require('nodemailer');
+const  { google } = require('googleapis');
 
 // These id's and secrets should come from .env file.
 const CLIENT_ID                 = process.env.GOOGLE_CLIENT_ID;

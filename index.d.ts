@@ -1,9 +1,4 @@
-# nodemailer-gmail
-This  uses nodemailer to send email from gmail
-
-set thess enviroment variable in your project to use nodmaler
-you need have access token from google too
-
+export = sendEmail;
 /**
  * This function send emails using nodemailer and  gamil
  * set up access token in google account from which you wish send email
@@ -19,5 +14,4 @@ you need have access token from google too
  * @param html body of email in html formt
  * @param from replay to email 
  */
-function sendEmail(to: string, subject: string, text: string, html: any, from?: string): Promise<any>;
-
+declare function sendEmail(to: string, subject: string, text: string, html: any, from?: string): Promise<any>;
