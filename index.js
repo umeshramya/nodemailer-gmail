@@ -1,13 +1,13 @@
 // this file is for sending email functions
-const nodemailer =  require('nodemailer');
-const  { google } = require('googleapis');
+const nodemailer = require('nodemailer');
+const { google } = require('googleapis');
 
 // These id's and secrets should come from .env file.
-const CLIENT_ID                 = process.env.GOOGLE_CLIENT_ID;
-const CLEINT_SECRET             = process.env.GOOGLE_CLIENT_SECRET;
-const REDIRECT_URI              = process.env.GOOGLE_REDIRECT_URI;
-const REFRESH_TOKEN             = process.env.GOOGLE_REFRESH_TOKEN;
-const  googleGmailUser          = process.env.GOOGLE_GMAIL_USER 
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const CLEINT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI;
+const REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
+const googleGmailUser = process.env.GOOGLE_GMAIL_USER
 
 const oAuth2Client = new google.auth.OAuth2(
   CLIENT_ID,
@@ -16,7 +16,7 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
-const sendEmail = async(to, subject, text, html, from = googleGmailUser)=> {
+const sendEmail = async (to, subject, text, html, fromName = googleGmailUser, from = googleGmailUser) => {
   try {
     const accessToken = await oAuth2Client.getAccessToken();
 
@@ -33,7 +33,7 @@ const sendEmail = async(to, subject, text, html, from = googleGmailUser)=> {
     });
 
     const mailOptions = {
-      from: `PEMR mail <${from}>`,
+      from: `${fromName} <${from}>`,
       to: to,
       subject: subject,
       text: text,
@@ -49,4 +49,4 @@ const sendEmail = async(to, subject, text, html, from = googleGmailUser)=> {
 
 
 
-module.exports= sendEmail
+module.exports = sendEmail

@@ -13,5 +13,6 @@ export = sendEmail;
  * @param text body of email in text format
  * @param html body of email in html formt
  * @param from replay to email 
+ * @param fromName name to display
  */
-declare function sendEmail(to: string, subject: string, text: string, html: any, from?: string): Promise<any>;
+declare function sendEmail(to: string, subject: string, text: string, html: any, fromName?: string, from?: string): Promise<any>;
