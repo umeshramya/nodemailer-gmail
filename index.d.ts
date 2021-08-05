@@ -15,4 +15,4 @@ export = sendEmail;
  * @param from replay to email 
  * @param fromName name to display
  */
-declare function sendEmail(to: string, subject: string, text: string, html: any, fromName?: string, from?: string): Promise<any>;
+declare function sendEmail(to: string, subject: string, text: string, html: any, fromName?: string, from?: string, replayTo?:string): Promise<any>;
